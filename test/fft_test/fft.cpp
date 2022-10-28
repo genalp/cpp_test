@@ -2,6 +2,9 @@
 #include "math.h"
 #include "kfft.cpp"
 
+// 200Hz 512N 9Hz
+// 200Hz 256N 18Hz
+
 #define PI 3.1415926535
 #define Fs 200
 #define N 512
@@ -10,7 +13,7 @@ int main()
 { 
 	int i,j;
     double pr[N],pi[N],fr[N],fi[N],t[N];
-    for (i=0; i<N; i++)  //生成输入信号
+    for (i=0; i<N; i++)  //鐢熸垚杈撳叆淇″彿
     { 
 		// t[i] = i*0.001;
         t[i] = i*1.0/Fs;
@@ -19,10 +22,10 @@ int main()
         pi[i]=0.0;
 	}
 		
-    kfft(pr,pi,N,9,fr,fi);  //调用FFT函数
+    kfft(pr,pi,N,9,fr,fi);  //璋冪敤FFT鍑芥暟
 	for (i=0; i<100; i++)
     { 
-        printf("%d\t%lf\n",i,pr[i]); //输出结果
+        printf("%d\t%lf\n",i,pr[i]); //杈撳嚭缁撴灉
     }
     // system("pause");
     return 0;

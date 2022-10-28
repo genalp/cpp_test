@@ -3,7 +3,7 @@ void kfft(double pr[], double pi[], int n, int k, double fr[], double fi[])
 { 
     int it,m,is,i,j,nv,l0;
     double p,q,s,vr,vi,poddr,poddi;
-    for (it=0; it<=n-1; it++)  //Ω´pr[0]∫Õpi[0]—≠ª∑∏≥÷µ∏¯fr[]∫Õfi[]
+    for (it=0; it<=n-1; it++)  //Â∞Üpr[0]Âíåpi[0]Âæ™ÁéØËµãÂÄºÁªôfr[]Âíåfi[]
     { 
         m=it; 
         is=0;
@@ -19,10 +19,10 @@ void kfft(double pr[], double pi[], int n, int k, double fr[], double fi[])
     pr[0]=1.0; 
     pi[0]=0.0;
     p=6.283185306/(1.0*n);
-    pr[1]=cos(p); //Ω´w=e^-j2pi/n”√≈∑¿≠π´ Ω±Ì æ
+    pr[1]=cos(p); //Â∞Üw=e^-j2pi/nÁî®Ê¨ßÊãâÂÖ¨ÂºèË°®Á§∫
     pi[1]=-sin(p);
 
-    for (i=2; i<=n-1; i++)  //º∆À„pr[]
+    for (i=2; i<=n-1; i++)  //ËÆ°ÁÆópr[]
     { 
         p=pr[i-1]*pr[1]; 
         q=pi[i-1]*pi[1];
@@ -40,7 +40,7 @@ void kfft(double pr[], double pi[], int n, int k, double fr[], double fi[])
     }
     m=n/2; 
     nv=2;
-    for (l0=k-2; l0>=0; l0--) //∫˚µ˚≤Ÿ◊˜
+    for (l0=k-2; l0>=0; l0--) //Ëù¥Ëù∂Êìç‰Ωú
     { 
         m=m/2; 
         nv=2*nv;
@@ -61,7 +61,7 @@ void kfft(double pr[], double pi[], int n, int k, double fr[], double fi[])
     }
     for (i=0; i<=n-1; i++)
     { 
-        pr[i]=sqrt(fr[i]*fr[i]+fi[i]*fi[i]);  //∑˘÷µº∆À„
+        pr[i]=sqrt(fr[i]*fr[i]+fi[i]*fi[i]);  //ÂπÖÂÄºËÆ°ÁÆó
     }
     return;
 }

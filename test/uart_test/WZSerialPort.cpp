@@ -190,27 +190,28 @@ int WZSerialPort::send(string dat)
 		return dwBytesWrite;
 	}
 }
- 
+
+#define StrLen 11286// 33// 11286// 4422
 string WZSerialPort::receive()
 {
 	HANDLE hCom = *(HANDLE*)pHandle;
 	string rec_str="";
-	char buf[4422];
+	char buf[StrLen];
 	if (this->synchronizeflag)
 	{
 		//同步方式
-		DWORD wCount = 4422; //成功读取的数据字节数
+		DWORD wCount = StrLen; //成功读取的数据字节数
 		BOOL bReadStat = ReadFile(hCom, //串口句柄
 			buf, //数据首地址
 			wCount, //要读取的数据最大字节数
 			&wCount, //DWORD*,用来接收返回成功读取的数据字节数
 			NULL); //NULL为同步发送，OVERLAPPED*为异步发送
-		for (int i = 0; i < 4422; i++)
+		for (int i = 0; i < StrLen; i++)
 		{
-			if (buf[i] != -52)
+			// if (buf[i] != -52)
 				rec_str += buf[i];
-			else
-				break;
+			// else
+				// break;
 		}
 		return rec_str;
 	}
